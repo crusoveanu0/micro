@@ -1,0 +1,27 @@
+#include <avr/io.h>
+int main(){
+unsigned char inputs;
+unsigned char vx2, vx1, vx0;
+unsigned char outs;
+unsigned char temp;
+
+DORA = 0b1111111;
+DORB = 0b0000000;
+
+while(1){
+  inputs = PINB;
+  inputs = inputs &0b0000111;
+  vx0 = inputs >>0 & 1 <<0;
+  vx1 = inputs >>1 & 1 <<0;
+  vx2 = inputs >>2 & 1 <<0;
+  outs = 0;
+  temp = vx2 ^ vx1 ^ vx0;
+  if(temp & 1<<0){
+    outs |= 1<<0;
+  }
+  if(inputs < 3){
+    outs |= 1<<1;
+  }
+  temp = (vx1 & ~(vx2)) | (vx2 & vx0);
+  PORTA = outs;
+}
