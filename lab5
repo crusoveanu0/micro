@@ -1,0 +1,26 @@
+void putchLCD(char ch){
+wait_BF_0();
+while(*ch != '\0'){
+  putchLSD(*ch);
+  *ch++;
+  }
+}
+  
+void clrLCD(){
+  wait_BF0();
+  wr_IReg(1);
+}
+
+void gotoLCD(unsigned char line, unsigned char col){
+  unsigned char pos;
+  wait_BF_0();
+  
+  if(line == 1){
+    pos = 0x80;
+  }
+  else{
+    pos = 0xC0;
+  }
+  pos = pos + col - 1;
+  wr_IReg(pos);
+}
