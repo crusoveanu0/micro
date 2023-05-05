@@ -18,27 +18,27 @@ DDRB=0;
 inputs = PINB & 0b00000111;
 switch(imputs){
   case 0:
-    PORTA = 0000001;
+    PORTA = 0b0000001;
   case 1:
-      PORTA = 1 0 0 1 1 1 1;
+      PORTA = 0b1 0 0 1 1 1 1;
       break;
   case 2:
-      PORTA = 0 1 0 1 0 0 1;
+      PORTA = 0b0 1 0 1 0 0 1;
       break;
   case 3;
-        PORTA = 0 0 0 0 1 1 0;
+        PORTA = 0b0 0 0 0 1 1 0;
         break;
   case 4:
-        PORTA = 0 1 1 0 0 1 1;
+        PORTA = 0b0 1 1 0 0 1 1;
         break;
   case 5:
-        PORTA = 0 1 0 0 1 0 0;
+        PORTA = 0b0 1 0 0 1 0 0;
         break;
   case 6:
-        PORTA = 0 1 0 0 0 0 0;
+        PORTA = 0b0 1 0 0 0 0 0;
         break;
   case 7:
-        PORTA = 0 0 0 1 1 1 1;
+        PORTA = 0b0 0 0 1 1 1 1;
         break;
 }
 }
